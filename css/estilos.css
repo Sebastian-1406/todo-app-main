@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+    --Bright-Blue: hsl(220, 98%, 61%);
+    --l-T-Very-Light-Gray: hsl(0, 0%, 98%);
+    --l-T-Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+    --l-T-Light-Grayish-Blue: hsl(233, 11%, 84%);
+    --l-T-Dark-Grayish-Blue: hsl(236, 9%, 61%);
+    --l-T-Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+    --D-T-Very-Dark-Blue: hsl(235, 21%, 11%);
+    --D-T-Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+    --D-T-Light-Grayish-Blue: hsl(234, 39%, 85%);
+    --D-T-Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+    --D-T-Dark-Grayish-Blue: hsl(234, 11%, 52%);
+    --D-T-Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+    --D-T-Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+
+    --Size : 18px;
+    --font-Josefin : 'Josefin Sans', sans-serif;
+    --padding: 25px
+
+}
+
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes desaparecer {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes girar360 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes girar {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+body {
+    background-color: var(--D-T-Very-Dark-Blue);
+    font-family: var(--font-Josefin);
+}
+
+header {
+    background-image: url("../images/bg-mobile-dark.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+header .texto {
+    padding: 35px 25px 125px 25px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 540px;
+    margin: auto;
+}
+header h1 {
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 3px;
+}
+main {
+    position: relative;
+    top: -90px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contenedor {
+    padding: 0 var(--padding);
+    max-width: 540px;
+    margin: auto;
+}
+
+.modo {
+    cursor: pointer;
+}
+
+.animation-rotate .modo {
+    animation-name: girar360;
+    animation-duration: 1s;
+}
+.animation-rotate360 .modo {
+    animation-name: girar;
+    animation-duration: 1s;
+}
+
+.agregar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+}
+.agregar input {
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+.agregar::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--D-T-Very-Dark-Grayish-Blue);
+    border-radius: 100%;
+    top: 0;
+    display: block;
+}
+.agregar input::placeholder { 
+    color: var(--D-T-Dark-Grayish-Blue);
+}
+.lista-tareas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.lista-tareas li {
+    padding: 15px 20px;
+    position: relative;
+    color: var(--D-T-Light-Grayish-Blue);
+}
+.lista-tareas li::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid var(--D-T-Very-Dark-Grayish-Blue);
+}
+.lista-tareas label   {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+.lista-tareas li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lista-tareas li img {
+    width: 15px;
+    height: 15px;
+    opacity: 0;
+    cursor: pointer;
+    animation-name: desaparecer;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+}
+.lista-tareas li:hover > img {
+    opacity: 1;
+    animation-name: aparecer;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+}
+
+.lista-tareas [type="checkbox"] {
+    position: relative;
+}
+.lista-tareas [type="checkbox"]::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    top: -5px;
+    left: -5px;
+    border-radius: 100%;
+    border: 1px solid #0004;
+    background-color: var(--D-T-Very-Dark-Desaturated-Blue);
+    cursor: pointer;
+
+}
+.activo {
+    position: relative;
+}
+.activo {
+    text-decoration: line-through;
+    color: var(--D-T-Very-Dark-Grayish-Blue);
+}
+.activo [type="checkbox"]::before {
+    background: linear-gradient(120deg, hsl(192, 100%, 67%) 10%, hsl(280, 87%, 65%) 100%);
+    border: none;
+    width: 21px;
+    height: 21px;
+}
+.activo::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 1px;
+    top: 4px;
+    background: transparent;
+    background-image: url("../images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg {
+    border-radius: 5px;
+    background-color: var(--D-T-Very-Dark-Desaturated-Blue);
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    color: var(--D-T-Dark-Grayish-Blue);
+}
+.opciones p {
+    margin: 0;
+}
+
+.lista-opciones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 20px;
+    color: var(--D-T-Dark-Grayish-Blue);
+    font-weight: 700;
+}
+.lista-opciones label {
+    cursor: pointer;
+    transition: color ease-in 300ms;
+}
+.lista-opciones label:hover {
+    color: var(--D-T-Light-Grayish-Blue-hover);
+}
+.lista-opciones [type="radio"] {
+    display: none;
+}
+.options-active{
+    color: var(--Bright-Blue);
+}
+
+.opciones-hover {
+    cursor: pointer;
+    transition: color ease-in 300ms;
+}
+.opciones-hover:hover{
+    color: var(--D-T-Light-Grayish-Blue-hover);
+}
+
+@media screen and (min-width:500px){
+    header {
+        background-image: url("../images/bg-desktop-dark.jpg")
+    }   
+    header .texto {
+        padding: 80px 25px 150px 25px ;
+    }
+    main {
+        top: -100px;
+    }
+
+}
+@media screen and (min-width:600px){
+    .lista-opciones {
+        position: absolute;
+        background: transparent;
+        bottom: 0;
+        left: 27%;
+    }
+}

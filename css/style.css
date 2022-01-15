@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+
+:root {
+    --font-Josefin : 'Josefin Sans', sans-serif;
+
+}
+
+body {
+    font-family: var(--font-Josefin);
+}
+
+.contenedor {
+    padding: 0 25px;
+}
+
+.hero {
+    background-image: url("../images/bg-mobile-light.jpg");
+    height: 120px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 25px;
+}
+
+.hero-texto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hero-texto h1 {
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 5px;
+    font-size: 1.8em;
+}
+
+
+.dark {
+    display: none;
+
+}
+
+main {
+    position: relative;
+    top: -100px;
+}
+
+.tareas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.agregar-tareas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 7px;
+    padding: 15px 20px;
+    gap: 15px;
+}
+.agregar-tareas input{
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.check {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #0004;
+    display: block;
+    border-radius: 100%;
+    cursor: pointer;
+}
+.check:active {
+    background-image: url("../images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+.lista-tareas {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #0003;
+}
+
+
+.lista-tareas label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lista-tareas li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #0003;
+}
+.lista-tareas [type="checkbox"] {
+    display: none;
+}
+.lista-tareas label::before {
+    content: "";
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 100%;
+    border: 1px solid  #0002;
+    cursor: pointer;
+}
+.lista-tareas [type="checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+
+.lista-tareas [type="checkbox"]:checked + label::before {
+    background-image: url("../images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background: linear-gradient(120deg, hsl(192, 100%, 67%) 10%, hsl(280, 87%, 65%) 100% );
+    border: 1px solid white;
+}
+
+.lista-tareas-options {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    padding: 15px 25px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background: white;
+    box-shadow: 0px 0px 10px #0003;
+    border-radius: 5px;
+    padding: 15px 20px;
+}
+.options [type="radio"] {
+    display: none;
+}
+.options label {
+    cursor: pointer;
+}
+
+.options [type="radio"]:checked + label{
+    font-weight: 700;
+}
+
+footer {
+    padding-top: 40px;
+    text-align: center;
+}
