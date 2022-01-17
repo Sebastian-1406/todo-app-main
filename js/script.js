@@ -1,6 +1,29 @@
 let icons = document.querySelector(".modo")
 let arrayAll = [
-   
+   {
+    active : "Complete  online JavaScript course",
+    completed : true
+   },
+   {
+    active : "Jog around the park 3x",
+    completed : false
+   },
+   {
+    active : "10 minutes mediation",
+    completed : false
+   },
+   {
+    active : "Read for 1 hour",
+    completed : false
+   },
+   {
+    active : "Pick up groceries",
+    completed : false
+   },
+   {
+    active : "Complete Todo App on Frontend Mentor",
+    completed : false
+   }
 ]
 let arrayActive = []
 let arrayComplete = []
@@ -19,15 +42,17 @@ let eliminarTareas = document.getElementById("eliminarTareas")
 let items = document.getElementById("items")
 
 const modeTheme = () => {
+    let body = document.querySelector("body")
     let nodo = icons.parentElement
     nodo.classList.toggle("animation-rotate")
+    body.classList.toggle("modo-claro")
     if(nodo.classList.contains("animation-rotate")){
         nodo.classList.remove("animation-rotate360")    
-        icons.src = "./images/icon-sun.svg"
+        icons.src = "./images/icon-moon.svg"
     }else{
         nodo.classList.remove("animation-rotate")    
         nodo.classList.add("animation-rotate360")    
-        icons.src = "./images/icon-moon.svg"
+        icons.src = "./images/icon-sun.svg"
     }
 }
 
@@ -133,7 +158,7 @@ const validarCheckbox = (evt) => {
             checkbox.forEach(Element => {
                 if(Element.checked){
                     Element.parentElement.classList.add("activo")
-                    arrayComplete.push({active : Element.parentElement.outerText, completed : true})
+                    arrayComplete.push({active : Element.parentElement.outerText, completed : false})
                     arrayAll[Element.id].completed = true
                 }else{
                     Element.parentElement.classList.remove("activo")

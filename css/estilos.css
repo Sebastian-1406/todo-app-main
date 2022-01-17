@@ -82,7 +82,7 @@ header h1 {
     margin: 0;
     text-transform: uppercase;
     color: white;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 main {
     position: relative;
@@ -273,6 +273,20 @@ main {
     color: var(--D-T-Light-Grayish-Blue-hover);
 }
 
+@media screen and (max-width:320px){
+    .lista-tareas label{
+        font-size: 14px;
+    }
+    .modo-claro header {
+        background-image: url("../images/bg-mobile-light.jpg");
+    }
+}
+
+@media screen and (min-width:320px){
+    .modo-claro header {
+        background-image: url("../images/bg-mobile-light.jpg");
+    }
+}
 @media screen and (min-width:500px){
     header {
         background-image: url("../images/bg-desktop-dark.jpg")
@@ -283,6 +297,9 @@ main {
     main {
         top: -100px;
     }
+    .modo-claro header {
+        background-image: url("../images/bg-desktop-light.jpg")
+    }
 
 }
 @media screen and (min-width:600px){
@@ -292,4 +309,41 @@ main {
         bottom: 0;
         left: 27%;
     }
+    .modo-claro header {
+        background-image: url("../images/bg-desktop-light.jpg")
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    
+}
+footer {
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--D-T-Dark-Grayish-Blue);
+}
+
+.modo-claro {
+    background: var(--l-T-Very-Light-Grayish-Blue);
+}
+.modo-claro .bg{
+    background-color: var(--l-T-Very-Light-Gray);
+}
+.modo-claro .lista-tareas [type="checkbox"]::before{
+    background-color: var(--l-T-Very-Light-Gray);
+}
+.modo-claro .lista-tareas li::before {
+    border-bottom: 1px solid var(--l-T-Very-Light-Grayish-Blue);
+}
+.modo-claro .agregar::before {
+    border: 1px solid var(--l-T-Very-Light-Grayish-Blue);
+}
+.modo-claro .lista-tareas li {
+    color: var(--l-T-Dark-Grayish-Blue);
+}
+.modo-claro .agregar input {
+    color: var(--l-T-Dark-Grayish-Blue);
 }
